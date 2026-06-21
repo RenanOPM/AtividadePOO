@@ -1,0 +1,11 @@
+Projeto renomeado para: Projeto_Cachaca_JavaFX_MVC
+
+Para usar no NetBeans:
+1. Extraia o ZIP.
+2. Abra a pasta Projeto_Cachaca_JavaFX_MVC diretamente no NetBeans.
+3. Confira o banco no arquivo src/javafxmvc/model/database/DatabasePostgreSQL.java.
+4. O banco esperado é cachaca_db no PostgreSQL.
+5. Execute o script SQL antes de rodar o sistema.
+6. Use Clean and Build e depois Run.
+
+As bibliotecas foram mantidas em caminhos relativos dentro da pasta lib.

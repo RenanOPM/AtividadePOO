@@ -1,0 +1,21 @@
+CORREÇÃO DO ERRO JASPERREPORTS
+
+Este projeto foi corrigido para NÃO usar o caminho antigo:
+C:\Projetos\POO2\Projeto_Cachaca_JavaFX_MVC\lib\jasper.reports\jasperreports-6.3.1.jar
+
+Os arquivos corrigidos foram:
+- nbproject/project.properties
+- nbproject/private/private.properties
+
+Agora o projeto usa caminhos relativos dentro da própria pasta:
+lib/jasper.reports/jasperreports-6.3.1.jar
+lib/jasper.reports/jasperreports-fonts-6.3.1.jar
+lib/jasper.reports/jasperreports-javaflow-6.3.1.jar
+
+IMPORTANTE:
+1. Apague a pasta antiga que deu erro.
+2. Extraia este ZIP em uma pasta nova.
+3. Abra o projeto extraído no NetBeans.
+4. Execute Clean and Build.
+
+Se ainda aparecer o caminho C:\Projetos\POO2, você está abrindo uma cópia antiga do projeto ou o NetBeans está usando cache/configuração antiga.
