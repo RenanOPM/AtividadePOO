@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.chart.*?>
+<?import javafx.geometry.Insets?>
+
+<AnchorPane prefHeight="590.0" prefWidth="980.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+    fx:controller="javafxmvc.controller.FXMLAnchorPaneGraficosEstoqueLocalController">
+  <children>
+    <VBox spacing="0" AnchorPane.topAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.bottomAnchor="0">
+      <children>
+        <VBox styleClass="header">
+          <children>
+            <Label text="Gráfico: Estoque por Local de Armazenamento" styleClass="header-title"/>
+            <Label text="Quantidade de engradados e litros distribuídos por local, com detalhamento por status." styleClass="header-subtitle"/>
+          </children>
+        </VBox>
+
+        <!-- KPIs -->
+        <HBox spacing="12" style="-fx-padding:10 14 6 14;">
+          <children>
+            <VBox styleClass="kpi-card kpi-card-blue" alignment="CENTER">
+              <children><Label fx:id="lblTotalLocais" text="0" styleClass="kpi-value kpi-value-blue"/><Label text="Locais Ativos" styleClass="kpi-label"/></children>
+            </VBox>
+            <VBox styleClass="kpi-card kpi-card-green" alignment="CENTER">
+              <children><Label fx:id="lblTotalEngradados" text="0" styleClass="kpi-value kpi-value-green"/><Label text="Total Engradados" styleClass="kpi-label"/></children>
+            </VBox>
+            <VBox styleClass="kpi-card kpi-card-orange" alignment="CENTER">
+              <children><Label fx:id="lblTotalLitros" text="0" styleClass="kpi-value kpi-value-orange"/><Label text="Total Litros" styleClass="kpi-label"/></children>
+            </VBox>
+          </children>
+        </HBox>
+
+        <!-- Gráfico + tabela -->
+        <VBox spacing="8" VBox.vgrow="ALWAYS">
+          <padding><Insets top="4" right="14" bottom="14" left="14"/></padding>
+          <children>
+            <BarChart fx:id="barChart" title="Engradados por local de armazenamento" prefHeight="310" VBox.vgrow="ALWAYS">
+              <xAxis><CategoryAxis fx:id="eixoLocal" label="Local"/></xAxis>
+              <yAxis><NumberAxis fx:id="eixoEngradados" label="Engradados"/></yAxis>
+            </BarChart>
+            <TableView fx:id="tableView" prefHeight="175">
+              <columns>
+                <TableColumn fx:id="colLocal"       text="Local"       prefWidth="200"/>
+                <TableColumn fx:id="colStatus"      text="Status"      prefWidth="160"/>
+                <TableColumn fx:id="colEngradados"  text="Engradados"  prefWidth="120"/>
+                <TableColumn fx:id="colLitros"      text="Litros"      prefWidth="120"/>
+              </columns>
+            </TableView>
+          </children>
+        </VBox>
+      </children>
+    </VBox>
+  </children>
+</AnchorPane>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<AnchorPane prefHeight="590.0" prefWidth="980.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxmvc.controller.FXMLAnchorPaneProcessosProducaoController">
+  <children>
+    <VBox spacing="12" AnchorPane.topAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.bottomAnchor="0">
+      <children>
+        <VBox styleClass="header"><children><Label text="Processo de Negócio: Produção" styleClass="header-title"/><Label text="Registro da produção com validação das regras de negócio pedidas no documento." styleClass="header-subtitle"/></children></VBox>
+        <HBox spacing="12" VBox.vgrow="ALWAYS">
+          <padding><Insets top="0" right="14" bottom="14" left="14"/></padding>
+          <children>
+            <VBox spacing="8" prefWidth="350" styleClass="card">
+              <children>
+                <Label text="Nova produção" />
+                <DatePicker fx:id="dpData" promptText="Data da produção" />
+                <ComboBox fx:id="comboGerente" promptText="Gerente" prefWidth="320" />
+                <ComboBox fx:id="comboFuncionario" promptText="Funcionário" prefWidth="320" />
+                <ComboBox fx:id="comboLinha" promptText="Linha de produção exclusiva" prefWidth="320" />
+                <ComboBox fx:id="comboLocal" promptText="Local de armazenamento" prefWidth="320" />
+                <TextField fx:id="txtLitros" promptText="Total de litros" />
+                <HBox spacing="8"><children><TextField fx:id="txtQtdEngradados" promptText="Qtd. engradados" prefWidth="150"/><TextField fx:id="txtLitrosEngradado" promptText="L/engradado" prefWidth="150"/></children></HBox>
+                <TextField fx:id="txtLote" promptText="Lote (ex: LOTE-2026-001)" />
+                <CheckBox fx:id="chkSelagem" text="Selagem verificada em todos os pacotes" />
+                <TextArea fx:id="txtObservacao" promptText="Observação" prefRowCount="3" />
+                <HBox spacing="8"><children><Button text="Registrar" onAction="#handleRegistrar" styleClass="primary-button"/><Button text="Limpar" onAction="#handleLimpar" styleClass="secondary-button"/></children></HBox>
+                <Label fx:id="labelRegras" wrapText="true" />
+              </children>
+            </VBox>
+            <TableView fx:id="tableView" HBox.hgrow="ALWAYS">
+              <columns>
+                <TableColumn fx:id="colCodigo" text="Cód." prefWidth="55" />
+                <TableColumn fx:id="colData" text="Data" prefWidth="90" />
+                <TableColumn fx:id="colTipo" text="Tipo" prefWidth="130" />
+                <TableColumn fx:id="colFuncionario" text="Funcionário" prefWidth="140" />
+                <TableColumn fx:id="colLocal" text="Local" prefWidth="140" />
+                <TableColumn fx:id="colLitros" text="Litros" prefWidth="85" />
+                <TableColumn fx:id="colEngradados" text="Engradados" prefWidth="90" />
+              </columns>
+            </TableView>
+          </children>
+        </HBox>
+      </children>
+    </VBox>
+  </children>
+</AnchorPane>

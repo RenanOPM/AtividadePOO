@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.chart.*?>
+<?import javafx.geometry.Insets?>
+
+<AnchorPane prefHeight="590.0" prefWidth="980.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+    fx:controller="javafxmvc.controller.FXMLAnchorPaneGraficosPacotesMesController">
+  <children>
+    <VBox spacing="0" AnchorPane.topAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.bottomAnchor="0">
+      <children>
+        <VBox styleClass="header">
+          <children>
+            <Label text="Gráfico: Pacotes por Mês e Tipo" styleClass="header-title"/>
+            <Label text="Visualize a produção mensal por tipo de cachaça em barras ou linha de tendência." styleClass="header-subtitle"/>
+          </children>
+        </VBox>
+
+        <!-- Filtros -->
+        <HBox spacing="10" styleClass="card">
+          <padding><Insets top="8" right="14" bottom="8" left="14"/></padding>
+          <children>
+            <Label text="Tipo:" style="-fx-font-weight:bold;"/>
+            <ComboBox fx:id="comboTipo" promptText="Todos os tipos" prefWidth="220" onAction="#carregar"/>
+            <Button text="Limpar filtro" onAction="#limparFiltro" styleClass="secondary-button"/>
+            <Label text="   " />
+            <Label fx:id="lblTotal" text="Total: 0 pacotes" style="-fx-font-weight:bold; -fx-text-fill:#1a5ba6;"/>
+          </children>
+        </HBox>
+
+        <!-- TabPane com dois gráficos -->
+        <TabPane fx:id="tabPane" VBox.vgrow="ALWAYS" tabClosingPolicy="UNAVAILABLE">
+          <tabs>
+            <Tab text="Gráfico de Barras">
+              <content>
+                <VBox spacing="8" style="-fx-padding:10;">
+                  <children>
+                    <BarChart fx:id="barChart" title="Quantidade de pacotes por mês e tipo" prefHeight="290" VBox.vgrow="ALWAYS">
+                      <xAxis><CategoryAxis fx:id="eixoMes" label="Mês / Tipo"/></xAxis>
+                      <yAxis><NumberAxis fx:id="eixoPacotes" label="Pacotes"/></yAxis>
+                    </BarChart>
+                    <TableView fx:id="tableView" prefHeight="160">
+                      <columns>
+                        <TableColumn fx:id="colMes"       text="Mês"        prefWidth="110"/>
+                        <TableColumn fx:id="colTipo"      text="Tipo"       prefWidth="160"/>
+                        <TableColumn fx:id="colEmbalagem" text="Embalagem"  prefWidth="160"/>
+                        <TableColumn fx:id="colPacotes"   text="Pacotes"    prefWidth="110"/>
+                        <TableColumn fx:id="colLitros"    text="Litros"     prefWidth="110"/>
+                      </columns>
+                    </TableView>
+                  </children>
+                </VBox>
+              </content>
+            </Tab>
+            <Tab text="Linha de Tendência">
+              <content>
+                <VBox spacing="8" style="-fx-padding:10;">
+                  <children>
+                    <LineChart fx:id="lineChart" title="Evolução mensal da produção (litros)" prefHeight="450" VBox.vgrow="ALWAYS" createSymbols="true">
+                      <xAxis><CategoryAxis fx:id="eixoMesLinha" label="Mês"/></xAxis>
+                      <yAxis><NumberAxis fx:id="eixoLitros" label="Litros"/></yAxis>
+                    </LineChart>
+                  </children>
+                </VBox>
+              </content>
+            </Tab>
+          </tabs>
+        </TabPane>
+      </children>
+    </VBox>
+  </children>
+</AnchorPane>
