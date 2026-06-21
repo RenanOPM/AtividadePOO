@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<AnchorPane prefHeight="590.0" prefWidth="980.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxmvc.controller.FXMLAnchorPaneProcessosArmazenamentoController">
+  <children>
+    <VBox spacing="12" AnchorPane.topAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.bottomAnchor="0">
+      <children>
+        <VBox styleClass="header"><children><Label text="Processo de Negócio: Armazenamento" styleClass="header-title"/><Label text="Acompanhamento do envelhecimento, liberação, embalo e saída do estoque." styleClass="header-subtitle"/></children></VBox>
+        <VBox spacing="10" VBox.vgrow="ALWAYS">
+          <padding><Insets top="0" right="14" bottom="14" left="14"/></padding>
+          <children>
+            <HBox spacing="10" styleClass="card"><children><Label fx:id="labelDetalhe" text="Selecione um lote para atualizar o status." HBox.hgrow="ALWAYS"/><ComboBox fx:id="comboStatus" promptText="Novo status" prefWidth="180"/><Button text="Atualizar Status" onAction="#handleAtualizarStatus" styleClass="primary-button"/></children></HBox>
+            <TableView fx:id="tableView" VBox.vgrow="ALWAYS">
+              <columns>
+                <TableColumn fx:id="colLote" text="Lote" prefWidth="130" />
+                <TableColumn fx:id="colTipo" text="Tipo" prefWidth="140" />
+                <TableColumn fx:id="colLocal" text="Local" prefWidth="150" />
+                <TableColumn fx:id="colLitros" text="Litros" prefWidth="90" />
+                <TableColumn fx:id="colProducao" text="Produção" prefWidth="105" />
+                <TableColumn fx:id="colLiberacao" text="Liberação" prefWidth="105" />
+                <TableColumn fx:id="colStatus" text="Status" prefWidth="160" />
+              </columns>
+            </TableView>
+          </children>
+        </VBox>
+      </children>
+    </VBox>
+  </children>
+</AnchorPane>

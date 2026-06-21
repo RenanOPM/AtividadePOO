@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.chart.*?>
+<?import javafx.geometry.Insets?>
+
+<AnchorPane prefHeight="590.0" prefWidth="980.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+    fx:controller="javafxmvc.controller.FXMLAnchorPaneGraficosLitrosTipoController">
+  <children>
+    <VBox spacing="0" AnchorPane.topAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.bottomAnchor="0">
+      <children>
+        <VBox styleClass="header">
+          <children>
+            <Label text="Gráfico: Litros Produzidos por Tipo" styleClass="header-title"/>
+            <Label text="Participação de cada tipo de cachaça no total de litros produzidos." styleClass="header-subtitle"/>
+          </children>
+        </VBox>
+
+        <!-- KPIs -->
+        <HBox spacing="12" style="-fx-padding:12 14 4 14;">
+          <children>
+            <VBox styleClass="kpi-card kpi-card-blue" alignment="CENTER">
+              <children><Label fx:id="lblTotalLitros" text="0" styleClass="kpi-value kpi-value-blue"/><Label text="Litros Totais" styleClass="kpi-label"/></children>
+            </VBox>
+            <VBox styleClass="kpi-card kpi-card-green" alignment="CENTER">
+              <children><Label fx:id="lblTipos" text="0" styleClass="kpi-value kpi-value-green"/><Label text="Tipos Ativos" styleClass="kpi-label"/></children>
+            </VBox>
+            <VBox styleClass="kpi-card kpi-card-orange" alignment="CENTER">
+              <children><Label fx:id="lblMediaLitros" text="0" styleClass="kpi-value kpi-value-orange"/><Label text="Média por Tipo" styleClass="kpi-label"/></children>
+            </VBox>
+          </children>
+        </HBox>
+
+        <!-- Gráfico pizza + tabela -->
+        <HBox spacing="12" VBox.vgrow="ALWAYS">
+          <padding><Insets top="8" right="14" bottom="14" left="14"/></padding>
+          <children>
+            <PieChart fx:id="pieChart" title="Litros por tipo de cachaça" HBox.hgrow="ALWAYS"
+                      labelsVisible="true" legendSide="BOTTOM"/>
+            <VBox spacing="8" prefWidth="320">
+              <children>
+                <Label text="Detalhamento por tipo" style="-fx-font-weight:bold; -fx-font-size:13px;"/>
+                <TableView fx:id="tableView" VBox.vgrow="ALWAYS">
+                  <columns>
+                    <TableColumn fx:id="colTipo"   text="Tipo"       prefWidth="160"/>
+                    <TableColumn fx:id="colLitros" text="Litros"     prefWidth="90"/>
+                    <TableColumn fx:id="colPerc"   text="%"          prefWidth="60"/>
+                  </columns>
+                </TableView>
+              </children>
+            </VBox>
+          </children>
+        </HBox>
+      </children>
+    </VBox>
+  </children>
+</AnchorPane>

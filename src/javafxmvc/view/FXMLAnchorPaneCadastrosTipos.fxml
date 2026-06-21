@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<AnchorPane prefHeight="590.0" prefWidth="980.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxmvc.controller.FXMLAnchorPaneCadastrosTiposController">
+  <children>
+    <VBox spacing="12" AnchorPane.topAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.bottomAnchor="0">
+      <children>
+        <VBox styleClass="header"><children><Label text="Cadastro de Tipos de Cachaça" styleClass="header-title"/><Label text="Barrigudinho, Tampinha, Rolha, Meiota, Mula Preta e novos tipos produzidos." styleClass="header-subtitle"/></children></VBox>
+        <HBox spacing="12" VBox.vgrow="ALWAYS">
+          <padding><Insets top="0" right="14" bottom="14" left="14"/></padding>
+          <children>
+            <VBox spacing="8" prefWidth="340" styleClass="card">
+              <children>
+                <Label text="Dados do tipo" />
+                <TextField fx:id="txtNome" promptText="Nome do tipo" />
+                <TextField fx:id="txtEmbalagem" promptText="Embalagem" />
+                <TextField fx:id="txtVolume" promptText="Volume unitário em litros" />
+                <TextField fx:id="txtDias" promptText="Dias de envelhecimento" />
+                <TextArea fx:id="txtDescricao" promptText="Descrição" prefRowCount="5" />
+                <CheckBox fx:id="chkAtivo" text="Ativo" />
+                <HBox spacing="8"><children><Button text="Novo" onAction="#handleNovo" styleClass="secondary-button"/><Button text="Salvar" onAction="#handleSalvar" styleClass="primary-button"/><Button text="Alterar" onAction="#handleAlterar" styleClass="secondary-button"/><Button text="Desativar" onAction="#handleRemover" styleClass="danger-button"/></children></HBox>
+              </children>
+            </VBox>
+            <TableView fx:id="tableView" HBox.hgrow="ALWAYS">
+              <columns>
+                <TableColumn fx:id="colCodigo" text="Código" prefWidth="70" />
+                <TableColumn fx:id="colNome" text="Tipo" prefWidth="200" />
+                <TableColumn fx:id="colEmbalagem" text="Embalagem" prefWidth="180" />
+                <TableColumn fx:id="colDias" text="Envelhecimento (dias)" prefWidth="170" />
+              </columns>
+            </TableView>
+          </children>
+        </HBox>
+      </children>
+    </VBox>
+  </children>
+</AnchorPane>

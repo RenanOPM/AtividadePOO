@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox prefHeight="620.0" prefWidth="980.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxmvc.controller.FXMLVBoxMainController">
+   <children>
+      <MenuBar styleClass="menu-bar">
+        <menus>
+          <Menu text="Cadastros">
+            <items>
+              <MenuItem text="Gerentes"           onAction="#handleMenuItemCadastrosGerentes" />
+              <MenuItem text="Funcionários"        onAction="#handleMenuItemCadastrosFuncionarios" />
+              <MenuItem text="Tipos de Cachaça"    onAction="#handleMenuItemCadastrosTipos" />
+            </items>
+          </Menu>
+          <Menu text="Processos">
+            <items>
+              <MenuItem text="Produção"            onAction="#handleMenuItemProcessosProducao" />
+              <MenuItem text="Armazenamento"       onAction="#handleMenuItemProcessosArmazenamento" />
+            </items>
+          </Menu>
+          <Menu text="Gráficos">
+            <items>
+              <MenuItem text="Pacotes por Mês"           onAction="#handleMenuItemGraficosPacotesMes" />
+              <MenuItem text="Litros por Tipo"            onAction="#handleMenuItemGraficosLitrosTipo" />
+              <MenuItem text="Estoque por Local"          onAction="#handleMenuItemGraficosEstoqueLocal" />
+            </items>
+          </Menu>
+          <Menu text="Relatórios">
+            <items>
+              <MenuItem text="Movimentação de Pacotes"    onAction="#handleMenuItemRelatoriosPacotes" />
+              <MenuItem text="Produção Detalhada"         onAction="#handleMenuItemRelatoriosProducao" />
+              <MenuItem text="Estoque de Cachaça"         onAction="#handleMenuItemRelatoriosEstoque" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <AnchorPane fx:id="anchorPane" VBox.vgrow="ALWAYS" />
+   </children>
+</VBox>

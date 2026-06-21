@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<AnchorPane prefHeight="590.0" prefWidth="980.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxmvc.controller.FXMLAnchorPaneCadastrosFuncionariosController">
+  <children>
+    <VBox spacing="12" AnchorPane.topAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.bottomAnchor="0">
+      <children>
+        <VBox styleClass="header"><children><Label text="Cadastro de Funcionários" styleClass="header-title"/><Label text="Manutenção do cadastro dos funcionários que participam da produção." styleClass="header-subtitle"/></children></VBox>
+        <HBox spacing="12" VBox.vgrow="ALWAYS">
+          <padding><Insets top="0" right="14" bottom="14" left="14"/></padding>
+          <children>
+            <VBox spacing="8" prefWidth="340" styleClass="card">
+              <children>
+                <Label text="Dados do funcionário" />
+                <TextField fx:id="txtNome" promptText="Nome" />
+                <TextField fx:id="txtCpf" promptText="CPF" />
+                <TextField fx:id="txtEmail" promptText="E-mail" />
+                <TextField fx:id="txtTelefone" promptText="Telefone" />
+                <TextField fx:id="txtCargo" promptText="Cargo" />
+                <ComboBox fx:id="comboGerente" promptText="Gerente responsável" prefWidth="310" />
+                <DatePicker fx:id="dpAdmissao" promptText="Data de admissão" />
+                <CheckBox fx:id="chkAtivo" text="Ativo" />
+                <HBox spacing="8"><children><Button text="Novo" onAction="#handleNovo" styleClass="secondary-button"/><Button text="Salvar" onAction="#handleSalvar" styleClass="primary-button"/><Button text="Alterar" onAction="#handleAlterar" styleClass="secondary-button"/><Button text="Desativar" onAction="#handleRemover" styleClass="danger-button"/></children></HBox>
+              </children>
+            </VBox>
+            <TableView fx:id="tableView" HBox.hgrow="ALWAYS">
+              <columns>
+                <TableColumn fx:id="colCodigo" text="Código" prefWidth="70" />
+                <TableColumn fx:id="colNome" text="Nome" prefWidth="190" />
+                <TableColumn fx:id="colCpf" text="CPF" prefWidth="120" />
+                <TableColumn fx:id="colCargo" text="Cargo" prefWidth="170" />
+                <TableColumn fx:id="colGerente" text="Gerente" prefWidth="180" />
+              </columns>
+            </TableView>
+          </children>
+        </HBox>
+      </children>
+    </VBox>
+  </children>
+</AnchorPane>

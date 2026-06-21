@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<AnchorPane prefHeight="590.0" prefWidth="980.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+    fx:controller="javafxmvc.controller.FXMLAnchorPaneRelatoriosPacotesController">
+  <children>
+    <VBox spacing="0" AnchorPane.topAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.bottomAnchor="0">
+      <children>
+        <VBox styleClass="header">
+          <children>
+            <Label text="Relatório: Movimentação de Pacotes" styleClass="header-title"/>
+            <Label text="Pacotes feitos, em armazenamento e com saída do estoque — por tipo de cachaça." styleClass="header-subtitle"/>
+          </children>
+        </VBox>
+
+        <!-- KPIs -->
+        <HBox spacing="12" style="-fx-padding:10 14 6 14;">
+          <children>
+            <VBox styleClass="kpi-card kpi-card-blue" alignment="CENTER">
+              <children><Label fx:id="lblTotalFeitos" text="0" styleClass="kpi-value kpi-value-blue"/><Label text="Pacotes Feitos" styleClass="kpi-label"/></children>
+            </VBox>
+            <VBox styleClass="kpi-card kpi-card-orange" alignment="CENTER">
+              <children><Label fx:id="lblTotalArm" text="0" styleClass="kpi-value kpi-value-orange"/><Label text="Em Armazenamento" styleClass="kpi-label"/></children>
+            </VBox>
+            <VBox styleClass="kpi-card kpi-card-green" alignment="CENTER">
+              <children><Label fx:id="lblTotalSaida" text="0" styleClass="kpi-value kpi-value-green"/><Label text="Saídas do Estoque" styleClass="kpi-label"/></children>
+            </VBox>
+            <VBox styleClass="kpi-card kpi-card-red" alignment="CENTER">
+              <children><Label fx:id="lblSaldoEstoque" text="0" styleClass="kpi-value kpi-value-red"/><Label text="Saldo em Estoque" styleClass="kpi-label"/></children>
+            </VBox>
+          </children>
+        </HBox>
+
+        <!-- Filtro + tabela -->
+        <VBox spacing="8" VBox.vgrow="ALWAYS">
+          <padding><Insets top="4" right="14" bottom="14" left="14"/></padding>
+          <children>
+            <HBox spacing="10" styleClass="card" alignment="CENTER_LEFT">
+              <children>
+                <Label text="Filtrar por tipo:" style="-fx-font-weight:bold;"/>
+                <ComboBox fx:id="comboTipo" promptText="Todos os tipos" prefWidth="220" onAction="#carregar"/>
+                <Button text="Limpar filtro" onAction="#limparFiltro" styleClass="secondary-button"/>
+              </children>
+            </HBox>
+            <TableView fx:id="tableView" VBox.vgrow="ALWAYS">
+              <columns>
+                <TableColumn fx:id="colTipo"           text="Tipo de Cachaça"              prefWidth="200"/>
+                <TableColumn fx:id="colFeitos"         text="Pacotes Feitos"               prefWidth="160"/>
+                <TableColumn fx:id="colArmazenamento"  text="Em Armazenamento"             prefWidth="180"/>
+                <TableColumn fx:id="colSaida"          text="Saídas do Estoque"            prefWidth="180"/>
+                <TableColumn fx:id="colSaldo"          text="Saldo Atual"                  prefWidth="140"/>
+              </columns>
+            </TableView>
+          </children>
+        </VBox>
+      </children>
+    </VBox>
+  </children>
+</AnchorPane>
